@@ -1,4 +1,4 @@
-# Guitar-Hero em C
+# Guitar-Hero em C++
 
 ## Descrição do projeto:
 Esse projeto foi desenvolvido um protótipo do famoso jogo Guitar Hero como projeto final da disciplina SSC0601 - Introdução à Ciência da Computação, na Universidade de São Paulo - USP, em parceria dos alunos Matheus Valim Nogueira e Arthur Silva de Albuquerque.
