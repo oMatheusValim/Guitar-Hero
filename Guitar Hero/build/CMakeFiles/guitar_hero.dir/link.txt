@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/guitar_hero.dir/src/main.cpp.o CMakeFiles/guitar_hero.dir/src/game.cpp.o CMakeFiles/guitar_hero.dir/src/file_handler.cpp.o CMakeFiles/guitar_hero.dir/src/note_manager.cpp.o -o guitar_hero  -lallegro_image -lallegro_acodec -lallegro_audio -lallegro_ttf -lallegro_font -lallegro_primitives -lallegro 

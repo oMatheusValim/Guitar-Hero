@@ -1,0 +1,3 @@
+/home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero/build/CMakeFiles/guitar_hero.dir
+/home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero/build/CMakeFiles/edit_cache.dir
+/home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero/build/CMakeFiles/rebuild_cache.dir

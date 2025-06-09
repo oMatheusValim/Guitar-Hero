@@ -1,21 +1,26 @@
 # Guitar-Hero em C
 
 ## Descrição do projeto:
-Este projeto foi desenvolvido como uma aplicação prática de diversos conceitos fundamentais da programação estruturada, especialmente na linguagem C. O jogo oferece uma experiência interativa e visual que combina lógica de programação, manipulação de arquivos e elementos gráficos.
+Esse projeto foi desenvolvido um protótipo do famoso jogo Guitar Hero como projeto final da disciplina SSC0601 - Introdução à Ciência da Computação, na Universidade de São Paulo - USP, em parceria dos alunos Matheus Valim Nogueira e Arthur Silva de Albuquerque.
+O intuito é desenvolver, na linguagem C ou C++, um jogo com os conhecimentos adquiridos ao longo da matéria, como funções, vetores, ponteiros, structs, manipulação de arquivos e alocação dinâmica de memória.
 
-## Funcionalidades:
+## Tecnologias utilizadas
+- Linguagem C++
+- Biblioteca Allegro para interface gráfica
 
-## Conceitos de programação utilizados:
-- Structs;
-- Ponteiros;
-- Vetores, Matrizes e String;
-- Funções e rotinas;
-- Alocação de Memória dinâmica;
-- Manipulação de Arquivos.
+## Como funciona
+- Fluxograma das funções:
 
-## Requisitos:
-
-Para compilar e rodar este projeto, é necessário:
-
-- Compilador C compatível;
-- Biblioteca Allegro 5.
+## Como usar
+1. Baixar o repositório
+```bash
+git clone https://github.com/oMatheusValim/Guitar-Hero.git
+```
+2. Baixar as bibliotecas necessárias
+- <verificar se o Allegro vai estar ja no arquivo ou precisa ser baixado>
+3. Rodar
+- ache o arquivo 
+```bash 
+guitar_hero 
+```
+e o execute
