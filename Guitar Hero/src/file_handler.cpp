@@ -19,7 +19,7 @@ std::vector<std::string> FileHandler::listFiles(const std::string& directoryPath
     // Adicionar músicas músicas 
     files.push_back("assets/songs/Paint_It_Black.txt");
     files.push_back("assets/songs/Legendary.txt");
-    files.push_back("Jojo.txt");
+    files.push_back("assets/songs/Jojo.txt");
     // files.push_back("assets/songs/another_song.txt");
     
     return files;

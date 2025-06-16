@@ -1,4 +1,4 @@
-# Install script for directory: /home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero
+# Install script for directory: /home/arthur/Área de trabalho/Guitar Hero2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/arthur/Área de trabalho/Guitar Hero2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

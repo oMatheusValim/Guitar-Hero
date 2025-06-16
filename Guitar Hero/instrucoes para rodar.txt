@@ -1,0 +1,13 @@
+1. Comando para puxar da nuvem as novas informações do repositório, se existirem
+git pull origin main
+
+2. Adicionar qual arquivo deseja enviar para o repositório
+git add <caminho para arquivo ou . para todos>
+
+3. Comentar as modificações
+git commit -m "seu comentário"
+
+4. Enviar para o repositório
+git push origin main
+
+//

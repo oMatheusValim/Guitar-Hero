@@ -289,7 +289,7 @@ void Game::renderPlaying() {
     al_draw_line(190, 550, 610, 550, al_map_rgb(255, 255, 0), 3);
 
     // Desenha os alvos fixos na zona de acerto
-    const char* keys[] = {"A", "S", "D", "F", "G"};
+    const char* keys[] = {"A", "S", "J", "K", "L"};
     for (int i = 0; i < 5; ++i) {
         al_draw_filled_circle(240 + i * 80, 525, 30, al_map_rgba(255, 255, 255, 50));
         al_draw_text(font, al_map_rgb(0,0,0), 240 + i * 80, 510, ALLEGRO_ALIGN_CENTER, keys[i]);

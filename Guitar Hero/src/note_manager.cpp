@@ -1,21 +1,35 @@
 #include "note_manager.h"
 #include <fstream>
 #include <iostream>
+#include <string> // Necessário para std::string e std::getline
+#include <sstream> // Necessário para std::stringstream
 #include <allegro5/allegro_primitives.h>
 
 // --- Constantes para a Velocidade ---
-const float INITIAL_NOTE_SPEED = 300.0f; // Velocidade inicial em pixels/segundo
-const float MAX_NOTE_SPEED = 700.0f;     // Velocidade máxima
-const float SPEED_INCREASE_RATE = 5.0f;  // Quantos pixels/segundo a velocidade aumenta por segundo
+// Diminuímos a velocidade para dar mais tempo de reação.
+const float INITIAL_NOTE_SPEED = 220.0f; // Era 300.0f
+const float MAX_NOTE_SPEED = 500.0f;     // Era 700.0f
+const float SPEED_INCREASE_RATE = 4.0f;  // Era 5.0f
 
-// Mapeamento de teclas para trilhas (0 a 4)
+// --- CORREÇÃO 1: Mapeamento de Teclas ---
+// Agora esta função entende os códigos do arquivo .txt
+// E também as teclas pressionadas pelo jogador (ALLEGRO_KEY_*)
 int map_key_to_track(int keycode) {
     switch (keycode) {
+        // Mapeamento para as teclas do jogador
         case ALLEGRO_KEY_A: return 0;
         case ALLEGRO_KEY_S: return 1;
-        case ALLEGRO_KEY_D: return 2;
-        case ALLEGRO_KEY_F: return 3;
-        case ALLEGRO_KEY_G: return 4;
+        case ALLEGRO_KEY_J: return 2;
+        case ALLEGRO_KEY_K: return 3;
+        case ALLEGRO_KEY_L: return 4;
+
+        // Mapeamento para os códigos do arquivo .txt
+        case 97:  return 0; // 'a' 
+        case 115: return 1; // 's'
+        case 106: return 2; // 'd -> j'
+        case 107: return 3; // 'f -> k'
+        case 108: return 4; // 'g -> l'
+            
         default: return -1;
     }
 }
@@ -29,6 +43,7 @@ void NoteManager::reset() {
     note_speed = INITIAL_NOTE_SPEED;
 }
 
+// --- CORREÇÃO 2: Leitura Inteligente do Arquivo ---
 void NoteManager::loadSong(const std::string& filename) {
     reset();
     std::ifstream file(filename);
@@ -37,63 +52,63 @@ void NoteManager::loadSong(const std::string& filename) {
         return;
     }
 
-    float time;
-    int key_code; 
-    while (file >> time >> key_code) {
-        Note note;
-        note.time = time;
-        note.track = map_key_to_track(key_code);
-        if (note.track == -1) continue; 
+    std::string line;
+    // Lê o arquivo linha por linha
+    while (std::getline(file, line)) {
+        // Ignora linhas de comentário ou vazias
+        if (line.empty() || line[0] == '#') {
+            continue;
+        }
 
-        note.y_position = 0; // Começa um pouco acima da tela
-        note.active = false;
-        note.hit = false;
-        note.missed = false;
-        notes.push_back(note);
+        std::stringstream ss(line);
+        float time;
+        int key_code;
+
+        // Tenta extrair os dois números da linha
+        if (ss >> time >> key_code) {
+            Note note;
+            note.time = time;
+            note.track = map_key_to_track(key_code);
+            
+            // Só adiciona a nota se a trilha for válida
+            if (note.track != -1) {
+                note.y_position = 0;
+                note.active = false;
+                note.hit = false;
+                note.missed = false;
+                notes.push_back(note);
+            }
+        }
     }
-    std::cout << "Música carregada com " << notes.size() << " notas." << std::endl;
+    std::cout << "Musica carregada com " << notes.size() << " notas." << std::endl;
 }
 
 void NoteManager::update(float song_position, float delta_time) {
-    // Aumenta a velocidade gradualmente
     if (note_speed < MAX_NOTE_SPEED) {
         note_speed += SPEED_INCREASE_RATE * delta_time;
     }
 
-    const float HIT_ZONE_Y = 525.0f; // Posição Y da zona de acerto
-    // O tempo que a nota fica na tela agora depende da velocidade atual
+    const float HIT_ZONE_Y = 525.0f;
     const float seconds_on_screen = HIT_ZONE_Y / note_speed;
 
     for (auto& note : notes) {
-        // Ativa a nota quando for a hora certa
+        // Ativa a nota quando for a hora certa de aparecer na tela
         if (!note.active && !note.hit && !note.missed && song_position >= note.time - seconds_on_screen) {
             note.active = true;
-            note.y_position = 0; // Garante que ela comece do topo ao ser ativada
+            note.y_position = 0;
         }
 
-        // Move a nota se ela estiver ativa
+        // Move a nota para baixo se ela estiver ativa
         if (note.active && !note.hit) {
             note.y_position += note_speed * delta_time;
         }
 
-        // Verifica se a nota foi perdida
-        if (note.active && !note.hit && !note.missed && note.y_position > HIT_ZONE_Y + 30) { // Uma pequena margem
+        // Verifica se o jogador perdeu a nota
+        if (note.active && !note.hit && !note.missed && note.y_position > HIT_ZONE_Y + 30) {
             note.missed = true;
             note.active = false;
         }
     }
-}
-
-
-// Implementação da função de contagem
-int NoteManager::getActiveNotesCount() const {
-    int count = 0;
-    for (const auto& note : notes) {
-        if (note.active) {
-            count++;
-        }
-    }
-    return count;
 }
 
 int NoteManager::checkHit(int key_code) {
@@ -112,7 +127,6 @@ int NoteManager::checkHit(int key_code) {
             }
         }
     }
-    // RETORNA 0 AO ERRAR (SEM PENALIDADE)
     return 0;
 }
 
@@ -132,19 +146,10 @@ void NoteManager::render() {
     const float TRACK_WIDTH = 80.0f;
 
     for (const auto& note : notes) {
-        /*if (note.active && !note.hit) {
-            float x1 = TRACK_START_X + note.track * TRACK_WIDTH + 5; // Adiciona margem
-            float y1 = note.y_position - 10;
-            float x2 = x1 + TRACK_WIDTH - 10; // Adiciona margem
-            float y2 = note.y_position + 10;
-            al_draw_filled_circle(x1 + (TRACK_WIDTH - 10)/2, y1 + 10, 25, keyToColor(note.track));
-        }*/
        if (note.active && !note.hit) {
             float center_x = TRACK_START_X + (note.track * TRACK_WIDTH) + (TRACK_WIDTH / 2);
             float center_y = note.y_position;
-            
-            // Desenha uma elipse vermelha
-            al_draw_filled_ellipse(center_x, center_y, 35, 15, al_map_rgb(255, 0, 0));
+            al_draw_filled_circle(center_x, center_y, 25, keyToColor(note.track));
         }
     }
 }
@@ -156,4 +161,15 @@ bool NoteManager::isSongFinished() const {
         }
     }
     return !notes.empty(); 
+}
+
+// Implementação da função de contagem (não utilizada no momento, mas mantida)
+int NoteManager::getActiveNotesCount() const {
+    int count = 0;
+    for (const auto& note : notes) {
+        if (note.active) {
+            count++;
+        }
+    }
+    return count;
 }

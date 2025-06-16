@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Encontra a Allegro e seus componentes usando PkgConfig (o método confiável para Debian)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(ALLEGRO REQUIRED 
+pkg_check_modules(ALLEGRO REQUIRED
     allegro-5 
     allegro_image-5 
     allegro_audio-5 
