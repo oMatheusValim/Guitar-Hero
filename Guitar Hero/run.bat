@@ -1,0 +1,3 @@
+@echo off
+echo Iniciando Guitar Hero...
+start "" GuitarHero.exe

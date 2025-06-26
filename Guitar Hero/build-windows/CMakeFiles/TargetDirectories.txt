@@ -1,0 +1,3 @@
+/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles/GuitarHero.dir
+/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles/edit_cache.dir
+/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles/rebuild_cache.dir
