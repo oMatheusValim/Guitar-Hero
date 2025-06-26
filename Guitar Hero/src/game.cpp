@@ -1,12 +1,12 @@
 #include "game.h"
 #include "file_handler.h"
 #include <iostream>
+#include <algorithm>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 
-// Construtor
 Game::Game() : 
     running(false), currentState(GameState::MENU), display(nullptr), 
     event_queue(nullptr), timer(nullptr), font(nullptr), 
@@ -14,7 +14,6 @@ Game::Game() :
     score(0), final_score(0), song_position(0.0f), 
     selectedSongIndex(0), menu_option(0), score_screen_option(0), music_started(false) {}
 
-// Destrutor
 Game::~Game() {
     if (music_stream) al_destroy_audio_stream(music_stream);
     if (hit_sound) al_destroy_sample(hit_sound);
@@ -25,7 +24,6 @@ Game::~Game() {
     if (display) al_destroy_display(display);
 }
 
-// Initialize
 bool Game::initialize() {
     if (!al_init()) return false;
     if (!al_install_keyboard()) return false;
@@ -110,14 +108,12 @@ void Game::processEvent(const ALLEGRO_EVENT& event) {
     }
 }
 
-// Update (Chamado a cada frame)
 void Game::update(float delta_time) {
     if (currentState == GameState::PLAYING) {
         updatePlaying({}, delta_time);
     }
 }
 
-// Render (Chama a renderização do estado atual)
 void Game::render() {
     al_clear_to_color(al_map_rgb(20, 20, 40)); 
     switch (currentState) {
@@ -128,7 +124,7 @@ void Game::render() {
     }
 }
 
-// --- LÓGICA DO MENU ---
+// --- LÓGICA DO MENU 
 void Game::updateMenu(const ALLEGRO_EVENT& event) {
     if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
         switch (event.keyboard.keycode) {
@@ -146,11 +142,11 @@ void Game::updateMenu(const ALLEGRO_EVENT& event) {
     }
 }
 void Game::renderMenu() {
-    al_draw_text(font, al_map_rgb(255, 255, 255), 400, 100, ALLEGRO_ALIGN_CENTER, "GUITAR HERO CLONE");
+    al_draw_text(font, al_map_rgb(255, 255, 255), 400, 100, ALLEGRO_ALIGN_CENTER, "Guitar Hero FOseus");
     ALLEGRO_COLOR play_color = (menu_option == 0) ? al_map_rgb(255, 255, 0) : al_map_rgb(255, 255, 255);
     ALLEGRO_COLOR exit_color = (menu_option == 1) ? al_map_rgb(255, 255, 0) : al_map_rgb(255, 255, 255);
-    al_draw_text(font, play_color, 400, 250, ALLEGRO_ALIGN_CENTER, "Selecionar Musica");
-    al_draw_text(font, exit_color, 400, 300, ALLEGRO_ALIGN_CENTER, "Sair");
+    al_draw_text(font, play_color, 400, 300, ALLEGRO_ALIGN_CENTER, "Jogar");
+    al_draw_text(font, exit_color, 400, 500, ALLEGRO_ALIGN_CENTER, "Sair");
 }
 
 // --- LÓGICA DA SELEÇÃO DE MÚSICA ---
@@ -182,7 +178,6 @@ void Game::updateSongSelect(const ALLEGRO_EVENT& event) {
     }
 }
 
-// CORREÇÃO 1: Limpeza dos nomes das músicas
 void Game::renderSongSelect() {
     al_draw_text(font, al_map_rgb(255, 255, 255), 400, 50, ALLEGRO_ALIGN_CENTER, "Selecione uma Musica");
 
@@ -195,12 +190,14 @@ void Game::renderSongSelect() {
     for (int i = 0; i < songList.size(); ++i) {
         ALLEGRO_COLOR color = (i == selectedSongIndex) ? al_map_rgb(255, 255, 0) : al_map_rgb(255, 255, 255);
         
-        // Lógica para extrair o nome do arquivo
         std::string fullPath = songList[i];
         size_t last_slash = fullPath.find_last_of("/\\");
         std::string filename = (last_slash == std::string::npos) ? fullPath : fullPath.substr(last_slash + 1);
         size_t last_dot = filename.find_last_of(".");
         std::string songName = (last_dot == std::string::npos) ? filename : filename.substr(0, last_dot);
+
+        // Substitui underscores por espaços
+        std::replace(songName.begin(), songName.end(), '_', ' ');
 
         al_draw_text(font, color, 400, 200 + i * 40, ALLEGRO_ALIGN_CENTER, songName.c_str());
     }
@@ -208,7 +205,7 @@ void Game::renderSongSelect() {
     al_draw_text(font, al_map_rgb(200,200,200), 400, 550, ALLEGRO_ALIGN_CENTER, "Pressione ENTER para jogar ou ESC para voltar");
 }
 
-// --- LÓGICA DO JOGO ---
+// --- LÓGICA DO JOGO
 void Game::startPlaying() {
     score = 0;
     song_position = 0;
@@ -216,6 +213,9 @@ void Game::startPlaying() {
     noteManager.reset();
     noteManager.loadSong(selectedSongPath);
     
+    float startTime = noteManager.getStartTime();
+    song_position = startTime; // Inicia a variável de tempo na posição 
+
     std::string audioPath = selectedSongPath;
     size_t dotPos = audioPath.rfind('.');
     if (dotPos != std::string::npos) audioPath.replace(dotPos, std::string::npos, ".ogg");
@@ -224,6 +224,10 @@ void Game::startPlaying() {
     if (music_stream) {
         al_attach_audio_stream_to_mixer(music_stream, al_get_default_mixer());
         al_set_audio_stream_playing(music_stream, true);
+        // Se houver um tempo de início, pula para ele
+        if (startTime > 0) {
+            al_seek_audio_stream_secs(music_stream, startTime);
+        }
         music_started = true;
     } 
 
@@ -232,36 +236,29 @@ void Game::startPlaying() {
 
 // Lógica de fim de jogo
 void Game::updatePlaying(const ALLEGRO_EVENT& event, float delta_time) {
-    // --- Lógica de Fim de Jogo ---
-    bool song_has_ended = false;
-    if (music_started && music_stream && !al_get_audio_stream_playing(music_stream)) {
-        // Se a música tinha começado e agora parou, ela terminou.
-        song_has_ended = true;
-    } else if (!music_started && noteManager.isSongFinished()) {
-        // Se nunca teve música e todas as notas acabaram, o jogo termina.
-        song_has_ended = true;
-    }
-
-    if(song_has_ended) {
+    float startTime = noteManager.getStartTime();
+    // Tempo de jogo excedeu 90 segundos
+    if (song_position - startTime >= 90.0f) {
         endPlaying();
         return;
     }
 
-    // --- Lógica de Avanço de Tempo ---
+    // A música com áudio terminou de tocar naturalmente
+    if (music_started && music_stream && !al_get_audio_stream_playing(music_stream)) {
+        endPlaying();
+        return;
+    }
+
+    // lógica de avanço de tempo
     if (delta_time > 0) {
-        // Se a música está tocando, use o tempo dela para a sincronia perfeita.
         if (music_started && music_stream) {
             song_position = al_get_audio_stream_position_secs(music_stream);
         } else {
-            // Se não, avance o tempo manualmente (RESERVA DE SEGURANÇA)
             song_position += delta_time;
         }
-        
-        // Atualiza o gerenciador de notas com o tempo correto
         noteManager.update(song_position, delta_time);
     }
     
-    // --- Lógica de Input ---
     if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
         int points = noteManager.checkHit(event.keyboard.keycode);
         if (points > 0) { 
@@ -273,30 +270,24 @@ void Game::updatePlaying(const ALLEGRO_EVENT& event, float delta_time) {
     }
 }
 
-// CORREÇÃO 2: Renderização das pistas visuais
+// Renderização das pistas visuais
 void Game::renderPlaying() {
-    // Desenha a "estrada" do jogo
     al_draw_filled_rectangle(190, 0, 610, 600, al_map_rgb(25, 25, 25));
-
-    // Desenha as 5 colunas
     for (int i = 0; i < 5; ++i) {
         al_draw_line(200 + i * 80, 0, 200 + i * 80, 600, al_map_rgb(50, 50, 50), 2);
     }
     al_draw_line(598, 0, 598, 600, al_map_rgb(50, 50, 50), 2);
-
-
-    // Desenha a zona de acerto
     al_draw_line(190, 550, 610, 550, al_map_rgb(255, 255, 0), 3);
-
-    // Desenha os alvos fixos na zona de acerto
     const char* keys[] = {"A", "S", "J", "K", "L"};
     for (int i = 0; i < 5; ++i) {
         al_draw_filled_circle(240 + i * 80, 525, 30, al_map_rgba(255, 255, 255, 50));
         al_draw_text(font, al_map_rgb(0,0,0), 240 + i * 80, 510, ALLEGRO_ALIGN_CENTER, keys[i]);
     }
-
+    
     noteManager.render();
     al_draw_textf(font, al_map_rgb(255, 255, 255), 10, 10, 0, "Score: %d", score);
+    // Adiciona o tempo na tela
+    al_draw_textf(font, al_map_rgb(255, 255, 255), 700, 10, ALLEGRO_ALIGN_CENTER, "Tempo: %.0f", song_position - noteManager.getStartTime());
 }
 
 void Game::endPlaying() {
@@ -311,8 +302,6 @@ void Game::endPlaying() {
     score_screen_option = 0; // Reseta a opção do menu de score
 }
 
-// --- LÓGICA DA TELA DE PONTUAÇÃO ---
-// CORREÇÃO 5: Nova tela de score com 3 opções
 void Game::updateScoreScreen(const ALLEGRO_EVENT& event) {
      if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
         switch(event.keyboard.keycode) {
@@ -340,10 +329,10 @@ void Game::renderScoreScreen() {
     ALLEGRO_COLOR color2 = (score_screen_option == 1) ? al_map_rgb(255, 255, 0) : al_map_rgb(255, 255, 255);
     ALLEGRO_COLOR color3 = (score_screen_option == 2) ? al_map_rgb(255, 255, 0) : al_map_rgb(255, 255, 255);
 
-    al_draw_text(font, al_map_rgb(255, 255, 255), 400, 100, ALLEGRO_ALIGN_CENTER, "Musica Finalizada!");
-    al_draw_textf(font, al_map_rgb(255, 255, 0), 400, 150, ALLEGRO_ALIGN_CENTER, "Pontuacao Final: %d", final_score);
+    al_draw_text(font, al_map_rgb(255, 255, 255), 400, 100, ALLEGRO_ALIGN_CENTER, "MUSICA FINALIZADA");
+    al_draw_textf(font, al_map_rgb(255, 255, 0), 400, 150, ALLEGRO_ALIGN_CENTER, "PONTUAÇÃO FINAL: %d", final_score);
 
-    al_draw_text(font, color1, 400, 300, ALLEGRO_ALIGN_CENTER, "Jogar Novamente");
-    al_draw_text(font, color2, 400, 350, ALLEGRO_ALIGN_CENTER, "Selecionar Outra Musica");
-    al_draw_text(font, color3, 400, 400, ALLEGRO_ALIGN_CENTER, "Voltar ao Menu Principal");
-}
+    al_draw_text(font, color1, 400, 300, ALLEGRO_ALIGN_CENTER, "JOGAR NOVAMENTE");
+    al_draw_text(font, color2, 400, 350, ALLEGRO_ALIGN_CENTER, "SELECIONAR OUTRA MÚSICA");
+    al_draw_text(font, color3, 400, 500, ALLEGRO_ALIGN_CENTER, "VOLTAR AO MENU");
+}   

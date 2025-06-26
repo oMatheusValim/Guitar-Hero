@@ -26,12 +26,15 @@ public:
 
     bool isSongFinished() const;
     int getActiveNotesCount() const;
+    float getStartTime() const;
 
 private:
     std::vector<Note> notes;
-    float note_speed; // << NOVO: Velocidade agora é uma variável
-
-    ALLEGRO_COLOR keyToColor(int track);
+    float note_speed;
+    float startTime;
+    
+    // LINHA FALTANTE ADICIONADA AQUI
+    ALLEGRO_COLOR keyToColor(int track); 
 };
 
 #endif // NOTE_MANAGER_H

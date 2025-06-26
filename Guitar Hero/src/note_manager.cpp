@@ -1,19 +1,16 @@
 #include "note_manager.h"
 #include <fstream>
 #include <iostream>
-#include <string> // Necessário para std::string e std::getline
-#include <sstream> // Necessário para std::stringstream
+#include <string>
+#include <sstream>
 #include <allegro5/allegro_primitives.h>
 
-// --- Constantes para a Velocidade ---
-// Diminuímos a velocidade para dar mais tempo de reação.
-const float INITIAL_NOTE_SPEED = 220.0f; // Era 300.0f
-const float MAX_NOTE_SPEED = 500.0f;     // Era 700.0f
-const float SPEED_INCREASE_RATE = 4.0f;  // Era 5.0f
+// --- Constantes de Velocidade
+const float INITIAL_NOTE_SPEED = 220.0f;
+const float MAX_NOTE_SPEED = 500.0f;
+const float SPEED_INCREASE_RATE = 4.0f;
 
-// --- CORREÇÃO 1: Mapeamento de Teclas ---
-// Agora esta função entende os códigos do arquivo .txt
-// E também as teclas pressionadas pelo jogador (ALLEGRO_KEY_*)
+// --- Função de Mapeamento de Teclas 
 int map_key_to_track(int keycode) {
     switch (keycode) {
         // Mapeamento para as teclas do jogador
@@ -26,9 +23,9 @@ int map_key_to_track(int keycode) {
         // Mapeamento para os códigos do arquivo .txt
         case 97:  return 0; // 'a' 
         case 115: return 1; // 's'
-        case 106: return 2; // 'd -> j'
-        case 107: return 3; // 'f -> k'
-        case 108: return 4; // 'g -> l'
+        case 106: return 2; // 'j'
+        case 107: return 3; // 'k'
+        case 108: return 4; // 'l'
             
         default: return -1;
     }
@@ -41,9 +38,10 @@ NoteManager::NoteManager() {
 void NoteManager::reset() {
     notes.clear();
     note_speed = INITIAL_NOTE_SPEED;
+    startTime = 0.0f;
 }
 
-// --- CORREÇÃO 2: Leitura Inteligente do Arquivo ---
+// --- Função de Carregamento
 void NoteManager::loadSong(const std::string& filename) {
     reset();
     std::ifstream file(filename);
@@ -53,24 +51,32 @@ void NoteManager::loadSong(const std::string& filename) {
     }
 
     std::string line;
-    // Lê o arquivo linha por linha
+    bool firstLine = true;
+
     while (std::getline(file, line)) {
-        // Ignora linhas de comentário ou vazias
         if (line.empty() || line[0] == '#') {
             continue;
         }
 
+        if (firstLine) {
+            std::string head;
+            std::stringstream iss_head(line);
+            iss_head >> head;
+            if (head == "START_TIME:") {
+                iss_head >> startTime;
+                continue; 
+            }
+        }
+        firstLine = false;
+
         std::stringstream ss(line);
         float time;
         int key_code;
-
-        // Tenta extrair os dois números da linha
         if (ss >> time >> key_code) {
             Note note;
             note.time = time;
             note.track = map_key_to_track(key_code);
             
-            // Só adiciona a nota se a trilha for válida
             if (note.track != -1) {
                 note.y_position = 0;
                 note.active = false;
@@ -80,7 +86,11 @@ void NoteManager::loadSong(const std::string& filename) {
             }
         }
     }
-    std::cout << "Musica carregada com " << notes.size() << " notas." << std::endl;
+    std::cout << "Musica carregada com " << notes.size() << " notas. Start time: " << startTime << "s." << std::endl;
+}
+
+float NoteManager::getStartTime() const {
+    return startTime;
 }
 
 void NoteManager::update(float song_position, float delta_time) {
@@ -92,18 +102,15 @@ void NoteManager::update(float song_position, float delta_time) {
     const float seconds_on_screen = HIT_ZONE_Y / note_speed;
 
     for (auto& note : notes) {
-        // Ativa a nota quando for a hora certa de aparecer na tela
         if (!note.active && !note.hit && !note.missed && song_position >= note.time - seconds_on_screen) {
             note.active = true;
             note.y_position = 0;
         }
 
-        // Move a nota para baixo se ela estiver ativa
         if (note.active && !note.hit) {
             note.y_position += note_speed * delta_time;
         }
 
-        // Verifica se o jogador perdeu a nota
         if (note.active && !note.hit && !note.missed && note.y_position > HIT_ZONE_Y + 30) {
             note.missed = true;
             note.active = false;
@@ -111,6 +118,7 @@ void NoteManager::update(float song_position, float delta_time) {
     }
 }
 
+// --- Função de Checagem de Acerto
 int NoteManager::checkHit(int key_code) {
     int track = map_key_to_track(key_code);
     if (track == -1) return 0;
@@ -123,13 +131,14 @@ int NoteManager::checkHit(int key_code) {
             if (note.y_position >= HIT_ZONE_Y_START && note.y_position <= HIT_ZONE_Y_END) {
                 note.hit = true;
                 note.active = false;
-                return 100;
+                return 10;
             }
         }
     }
     return 0;
 }
 
+// --- Função de Cor da Nota 
 ALLEGRO_COLOR NoteManager::keyToColor(int track) {
     switch (track) {
         case 0: return al_map_rgb(0, 255, 0);   // Verde
@@ -141,6 +150,7 @@ ALLEGRO_COLOR NoteManager::keyToColor(int track) {
     }
 }
 
+// --- Função de Renderização
 void NoteManager::render() {
     const float TRACK_START_X = 200.0f;
     const float TRACK_WIDTH = 80.0f;
@@ -149,7 +159,11 @@ void NoteManager::render() {
        if (note.active && !note.hit) {
             float center_x = TRACK_START_X + (note.track * TRACK_WIDTH) + (TRACK_WIDTH / 2);
             float center_y = note.y_position;
-            al_draw_filled_circle(center_x, center_y, 25, keyToColor(note.track));
+            
+            // Efeito "3D": desenha uma "base" escura e deslocada
+            al_draw_filled_ellipse(center_x, center_y + 5, 35, 15, al_map_rgb(120, 0, 0));
+            // Desenha o "topo" do disco em vermelho vivo
+            al_draw_filled_ellipse(center_x, center_y, 35, 15, keyToColor(note.track));
         }
     }
 }
@@ -163,7 +177,6 @@ bool NoteManager::isSongFinished() const {
     return !notes.empty(); 
 }
 
-// Implementação da função de contagem (não utilizada no momento, mas mantida)
 int NoteManager::getActiveNotesCount() const {
     int count = 0;
     for (const auto& note : notes) {

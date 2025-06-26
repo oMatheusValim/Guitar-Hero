@@ -11,3 +11,25 @@ git commit -m "seu comentário"
 git push origin main
 
 //
+Excluir a pasta build 
+rm -rf build
+
+Refazer a pasta build
+mkdir build
+
+Compilar o arquivo CMake e juntar tudo nele
+cmake ..
+
+Salvar as alterações
+make
+
+Rodar o programa
+./guitar_hero
+
+///////
+# O -DSHARED=OFF diz ao build da Allegro para não criar DLLs
+cmake -S . -B build -DSHARED=OFF
+
+# O resto é igual
+cmake --build build --config Release
+cpack --config build/CPackConfig.cmake -C Release
