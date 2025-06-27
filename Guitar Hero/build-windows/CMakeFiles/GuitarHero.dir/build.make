@@ -150,6 +150,8 @@ GuitarHero.exe: CMakeFiles/GuitarHero.dir/objects1
 GuitarHero.exe: CMakeFiles/GuitarHero.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable GuitarHero.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GuitarHero.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copiando a DLL principal do Allegro"
+	/usr/bin/cmake -E copy /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_monolith-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
 	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/runtime-dlls/libgcc_s_seh-1.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
 	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/runtime-dlls/libstdc++-6.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
 	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/runtime-dlls/libwinpthread-1.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows

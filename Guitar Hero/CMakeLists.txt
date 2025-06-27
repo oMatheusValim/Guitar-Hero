@@ -22,17 +22,21 @@ if (WIN32)
     target_include_directories(GuitarHero PRIVATE ${ALLEGRO_WIN_DIR}/include)
 
     # Linka diretamente com a biblioteca de importação "monolith"
-    # Esta é a forma mais simples e robusta para este pacote
     target_link_libraries(GuitarHero PRIVATE
         "${ALLEGRO_WIN_DIR}/lib/liballegro_monolith.dll.a"
     )
 
     # --- Copia as DLLs necessárias para a pasta final ---
 
-    # Copia a DLL principal do Allegro ("monolith")
-    file(COPY "${ALLEGRO_WIN_DIR}/bin/allegro_monolith-5.2.dll" DESTINATION $<TARGET_FILE_DIR:GuitarHero>)
+    # CORREÇÃO AQUI: Usa add_custom_command para garantir que a DLL do Allegro seja copiada
+    add_custom_command(TARGET GuitarHero POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        "${ALLEGRO_WIN_DIR}/bin/allegro_monolith-5.2.dll"
+        "$<TARGET_FILE_DIR:GuitarHero>"
+        COMMENT "Copiando a DLL principal do Allegro"
+    )
 
-    # Copia as DLLs de runtime do MinGW (ainda são necessárias)
+    # Copia as DLLs de runtime do MinGW (esta parte já estava correta)
     file(GLOB MINGW_DLLS "${CMAKE_SOURCE_DIR}/runtime-dlls/*.dll")
     foreach(DLL_FILE ${MINGW_DLLS})
         add_custom_command(TARGET GuitarHero POST_BUILD
@@ -41,6 +45,7 @@ if (WIN32)
             "$<TARGET_FILE_DIR:GuitarHero>"
         )
     endforeach()
+    
 else()
     message(STATUS "Compilando para Linux")
 
