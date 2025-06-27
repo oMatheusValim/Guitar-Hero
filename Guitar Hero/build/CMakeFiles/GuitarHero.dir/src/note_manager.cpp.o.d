@@ -1,7 +1,7 @@
 CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o: \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/src/note_manager.cpp \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/note_manager.cpp \
  /usr/include/stdc-predef.h \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/include/note_manager.h \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/include/note_manager.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \

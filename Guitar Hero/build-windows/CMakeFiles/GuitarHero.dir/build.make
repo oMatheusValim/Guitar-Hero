@@ -69,126 +69,84 @@ include CMakeFiles/GuitarHero.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GuitarHero.dir/flags.make
 
-CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj: CMakeFiles/GuitarHero.dir/flags.make
-CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj: CMakeFiles/GuitarHero.dir/includes_CXX.rsp
-CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/file_handler.cpp
-CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj: CMakeFiles/GuitarHero.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj -MF CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj.d -o CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp"
+CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o: CMakeFiles/GuitarHero.dir/flags.make
+CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/file_handler.cpp
+CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o: CMakeFiles/GuitarHero.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o -MF CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o.d -o CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp"
 
 CMakeFiles/GuitarHero.dir/src/file_handler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GuitarHero.dir/src/file_handler.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp" > CMakeFiles/GuitarHero.dir/src/file_handler.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp" > CMakeFiles/GuitarHero.dir/src/file_handler.cpp.i
 
 CMakeFiles/GuitarHero.dir/src/file_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GuitarHero.dir/src/file_handler.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp" -o CMakeFiles/GuitarHero.dir/src/file_handler.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/file_handler.cpp" -o CMakeFiles/GuitarHero.dir/src/file_handler.cpp.s
 
-CMakeFiles/GuitarHero.dir/src/game.cpp.obj: CMakeFiles/GuitarHero.dir/flags.make
-CMakeFiles/GuitarHero.dir/src/game.cpp.obj: CMakeFiles/GuitarHero.dir/includes_CXX.rsp
-CMakeFiles/GuitarHero.dir/src/game.cpp.obj: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/game.cpp
-CMakeFiles/GuitarHero.dir/src/game.cpp.obj: CMakeFiles/GuitarHero.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GuitarHero.dir/src/game.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/game.cpp.obj -MF CMakeFiles/GuitarHero.dir/src/game.cpp.obj.d -o CMakeFiles/GuitarHero.dir/src/game.cpp.obj -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp"
+CMakeFiles/GuitarHero.dir/src/game.cpp.o: CMakeFiles/GuitarHero.dir/flags.make
+CMakeFiles/GuitarHero.dir/src/game.cpp.o: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/game.cpp
+CMakeFiles/GuitarHero.dir/src/game.cpp.o: CMakeFiles/GuitarHero.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GuitarHero.dir/src/game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/game.cpp.o -MF CMakeFiles/GuitarHero.dir/src/game.cpp.o.d -o CMakeFiles/GuitarHero.dir/src/game.cpp.o -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp"
 
 CMakeFiles/GuitarHero.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GuitarHero.dir/src/game.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp" > CMakeFiles/GuitarHero.dir/src/game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp" > CMakeFiles/GuitarHero.dir/src/game.cpp.i
 
 CMakeFiles/GuitarHero.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GuitarHero.dir/src/game.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp" -o CMakeFiles/GuitarHero.dir/src/game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/game.cpp" -o CMakeFiles/GuitarHero.dir/src/game.cpp.s
 
-CMakeFiles/GuitarHero.dir/src/main.cpp.obj: CMakeFiles/GuitarHero.dir/flags.make
-CMakeFiles/GuitarHero.dir/src/main.cpp.obj: CMakeFiles/GuitarHero.dir/includes_CXX.rsp
-CMakeFiles/GuitarHero.dir/src/main.cpp.obj: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/main.cpp
-CMakeFiles/GuitarHero.dir/src/main.cpp.obj: CMakeFiles/GuitarHero.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GuitarHero.dir/src/main.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/main.cpp.obj -MF CMakeFiles/GuitarHero.dir/src/main.cpp.obj.d -o CMakeFiles/GuitarHero.dir/src/main.cpp.obj -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp"
+CMakeFiles/GuitarHero.dir/src/main.cpp.o: CMakeFiles/GuitarHero.dir/flags.make
+CMakeFiles/GuitarHero.dir/src/main.cpp.o: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/main.cpp
+CMakeFiles/GuitarHero.dir/src/main.cpp.o: CMakeFiles/GuitarHero.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GuitarHero.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/main.cpp.o -MF CMakeFiles/GuitarHero.dir/src/main.cpp.o.d -o CMakeFiles/GuitarHero.dir/src/main.cpp.o -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp"
 
 CMakeFiles/GuitarHero.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GuitarHero.dir/src/main.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp" > CMakeFiles/GuitarHero.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp" > CMakeFiles/GuitarHero.dir/src/main.cpp.i
 
 CMakeFiles/GuitarHero.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GuitarHero.dir/src/main.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp" -o CMakeFiles/GuitarHero.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/main.cpp" -o CMakeFiles/GuitarHero.dir/src/main.cpp.s
 
-CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj: CMakeFiles/GuitarHero.dir/flags.make
-CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj: CMakeFiles/GuitarHero.dir/includes_CXX.rsp
-CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/note_manager.cpp
-CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj: CMakeFiles/GuitarHero.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj -MF CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj.d -o CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp"
+CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o: CMakeFiles/GuitarHero.dir/flags.make
+CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/note_manager.cpp
+CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o: CMakeFiles/GuitarHero.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o -MF CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o.d -o CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o -c "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp"
 
 CMakeFiles/GuitarHero.dir/src/note_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GuitarHero.dir/src/note_manager.cpp.i"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp" > CMakeFiles/GuitarHero.dir/src/note_manager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp" > CMakeFiles/GuitarHero.dir/src/note_manager.cpp.i
 
 CMakeFiles/GuitarHero.dir/src/note_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GuitarHero.dir/src/note_manager.cpp.s"
-	/usr/bin/x86_64-w64-mingw32-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp" -o CMakeFiles/GuitarHero.dir/src/note_manager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/src/note_manager.cpp" -o CMakeFiles/GuitarHero.dir/src/note_manager.cpp.s
 
 # Object files for target GuitarHero
 GuitarHero_OBJECTS = \
-"CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj" \
-"CMakeFiles/GuitarHero.dir/src/game.cpp.obj" \
-"CMakeFiles/GuitarHero.dir/src/main.cpp.obj" \
-"CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj"
+"CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o" \
+"CMakeFiles/GuitarHero.dir/src/game.cpp.o" \
+"CMakeFiles/GuitarHero.dir/src/main.cpp.o" \
+"CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o"
 
 # External object files for target GuitarHero
 GuitarHero_EXTERNAL_OBJECTS =
 
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/src/game.cpp.obj
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/src/main.cpp.obj
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/build.make
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_audio.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_acodec.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_font.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_image.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_primitives.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_ttf.dll.a
-GuitarHero.exe: /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/lib/liballegro_main.dll.a
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/linkLibs.rsp
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/objects1
-GuitarHero.exe: CMakeFiles/GuitarHero.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable GuitarHero.exe"
+GuitarHero: CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o
+GuitarHero: CMakeFiles/GuitarHero.dir/src/game.cpp.o
+GuitarHero: CMakeFiles/GuitarHero.dir/src/main.cpp.o
+GuitarHero: CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o
+GuitarHero: CMakeFiles/GuitarHero.dir/build.make
+GuitarHero: CMakeFiles/GuitarHero.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/build-windows/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable GuitarHero"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GuitarHero.dir/link.txt --verbose=$(VERBOSE)
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_acodec-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_acodec-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_audio-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_audio-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_color-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_color-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_dialog-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_dialog-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_font-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_font-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_image-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_image-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_main-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_main-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_memfile-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_memfile-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_monolith-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_monolith-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_physfs-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_physfs-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_primitives-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_primitives-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_ttf-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_ttf-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_video-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
-	/usr/bin/cmake -E copy_if_different /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/allegro/bin/allegro_video-debug-5.2.dll /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows
 	/usr/bin/cmake -E copy_directory /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/assets /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/build-windows/assets
 
 # Rule to build all files generated by this target.
-CMakeFiles/GuitarHero.dir/build: GuitarHero.exe
+CMakeFiles/GuitarHero.dir/build: GuitarHero
 .PHONY : CMakeFiles/GuitarHero.dir/build
 
 CMakeFiles/GuitarHero.dir/clean:

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/mvalim/Área de trabalho/Códigos/LAB ICC/Guitar Hero/include"
+CXX_INCLUDES = -I"/home/mvalim/Área de trabalho/GitHub/Guitar-Hero/Guitar Hero/include"
 
 CXX_FLAGS = -std=gnu++17
 

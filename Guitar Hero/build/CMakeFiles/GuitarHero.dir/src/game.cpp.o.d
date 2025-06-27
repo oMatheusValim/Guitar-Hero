@@ -1,7 +1,7 @@
 CMakeFiles/GuitarHero.dir/src/game.cpp.o: \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/src/game.cpp \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/src/game.cpp \
  /usr/include/stdc-predef.h \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/include/game.h \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/include/game.h \
  /usr/include/allegro5/allegro5.h /usr/include/allegro5/allegro.h \
  /usr/include/allegro5/base.h /usr/include/errno.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -114,7 +114,7 @@ CMakeFiles/GuitarHero.dir/src/game.cpp.o: \
  /usr/include/allegro5/platform/alunix.h \
  /usr/include/allegro5/allegro_font.h /usr/include/allegro5/allegro.h \
  /usr/include/allegro5/allegro_audio.h \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/include/note_manager.h \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/include/note_manager.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/c++/12/bits/functexcept.h \
  /usr/include/c++/12/bits/exception_defines.h \
@@ -174,7 +174,7 @@ CMakeFiles/GuitarHero.dir/src/game.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/c++/12/cerrno /usr/include/c++/12/bits/charconv.h \
  /usr/include/c++/12/bits/basic_string.tcc \
- /home/mvalim/Área\ de\ trabalho/Códigos/LAB\ ICC/Guitar\ Hero/include/file_handler.h \
+ /home/mvalim/Área\ de\ trabalho/GitHub/Guitar-Hero/Guitar\ Hero/include/file_handler.h \
  /usr/include/c++/12/iostream /usr/include/c++/12/ostream \
  /usr/include/c++/12/ios /usr/include/c++/12/exception \
  /usr/include/c++/12/bits/exception_ptr.h \

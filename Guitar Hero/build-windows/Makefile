@@ -129,13 +129,13 @@ GuitarHero/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/build
 .PHONY : GuitarHero/fast
 
-src/file_handler.obj: src/file_handler.cpp.obj
-.PHONY : src/file_handler.obj
+src/file_handler.o: src/file_handler.cpp.o
+.PHONY : src/file_handler.o
 
 # target to build an object file
-src/file_handler.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/file_handler.cpp.obj
-.PHONY : src/file_handler.cpp.obj
+src/file_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/file_handler.cpp.o
+.PHONY : src/file_handler.cpp.o
 
 src/file_handler.i: src/file_handler.cpp.i
 .PHONY : src/file_handler.i
@@ -153,13 +153,13 @@ src/file_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/file_handler.cpp.s
 .PHONY : src/file_handler.cpp.s
 
-src/game.obj: src/game.cpp.obj
-.PHONY : src/game.obj
+src/game.o: src/game.cpp.o
+.PHONY : src/game.o
 
 # target to build an object file
-src/game.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/game.cpp.obj
-.PHONY : src/game.cpp.obj
+src/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/game.cpp.o
+.PHONY : src/game.cpp.o
 
 src/game.i: src/game.cpp.i
 .PHONY : src/game.i
@@ -177,13 +177,13 @@ src/game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
 
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
 .PHONY : src/main.i
@@ -201,13 +201,13 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/note_manager.obj: src/note_manager.cpp.obj
-.PHONY : src/note_manager.obj
+src/note_manager.o: src/note_manager.cpp.o
+.PHONY : src/note_manager.o
 
 # target to build an object file
-src/note_manager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/note_manager.cpp.obj
-.PHONY : src/note_manager.cpp.obj
+src/note_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GuitarHero.dir/build.make CMakeFiles/GuitarHero.dir/src/note_manager.cpp.o
+.PHONY : src/note_manager.cpp.o
 
 src/note_manager.i: src/note_manager.cpp.i
 .PHONY : src/note_manager.i
@@ -234,16 +234,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... GuitarHero"
-	@echo "... src/file_handler.obj"
+	@echo "... src/file_handler.o"
 	@echo "... src/file_handler.i"
 	@echo "... src/file_handler.s"
-	@echo "... src/game.obj"
+	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
-	@echo "... src/main.obj"
+	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/note_manager.obj"
+	@echo "... src/note_manager.o"
 	@echo "... src/note_manager.i"
 	@echo "... src/note_manager.s"
 .PHONY : help
