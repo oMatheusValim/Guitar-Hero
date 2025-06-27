@@ -34,12 +34,23 @@ if (WIN32)
 
 
     # Copiar DLLs automaticamente para o build
-    file(GLOB DLLS "${CMAKE_PREFIX_PATH}/bin/*.dll")
-    foreach(DLL ${DLLS})
+    file(GLOB ALLEGRO_DLLS "${CMAKE_SOURCE_DIR}/allegro/bin/*.dll")
+    foreach(DLL_FILE ${ALLEGRO_DLLS})
         add_custom_command(TARGET GuitarHero POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${DLL}
-            $<TARGET_FILE_DIR:GuitarHero>
+            "${DLL_FILE}"
+            "$<TARGET_FILE_DIR:GuitarHero>"
+            COMMENT "Copiando ${DLL_FILE} para a pasta de saida"
+        )
+    endforeach()
+    
+    file(GLOB MINGW_DLLS "${CMAKE_SOURCE_DIR}/runtime-dlls/*.dll")
+    foreach(DLL_FILE ${MINGW_DLLS})
+        add_custom_command(TARGET GuitarHero POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${DLL_FILE}"
+            "$<TARGET_FILE_DIR:GuitarHero>"
+            COMMENT "Copiando runtime DLL ${DLL_FILE} para a pasta de saida"
         )
     endforeach()
 
