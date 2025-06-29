@@ -33,8 +33,7 @@ private:
     float note_speed;
     float startTime;
     
-    // LINHA FALTANTE ADICIONADA AQUI
     ALLEGRO_COLOR keyToColor(int track); 
 };
 
-#endif // NOTE_MANAGER_H
+#endif

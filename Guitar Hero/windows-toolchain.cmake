@@ -1,4 +1,3 @@
-# windows-toolchain.cmake
 # Configura o CMake para compilação cruzada para Windows
 
 set(CMAKE_SYSTEM_NAME Windows)

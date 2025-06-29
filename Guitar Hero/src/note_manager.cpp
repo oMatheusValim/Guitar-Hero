@@ -38,7 +38,7 @@ NoteManager::NoteManager() {
 void NoteManager::reset() {
     notes.clear();
     note_speed = INITIAL_NOTE_SPEED;
-    startTime = 0.0f;
+    startTime = 0.0f; 
 }
 
 // --- Função de Carregamento
@@ -51,23 +51,11 @@ void NoteManager::loadSong(const std::string& filename) {
     }
 
     std::string line;
-    bool firstLine = true;
-
     while (std::getline(file, line)) {
+        // Ignora linhas de comentário ou vazias
         if (line.empty() || line[0] == '#') {
             continue;
         }
-
-        if (firstLine) {
-            std::string head;
-            std::stringstream iss_head(line);
-            iss_head >> head;
-            if (head == "START_TIME:") {
-                iss_head >> startTime;
-                continue; 
-            }
-        }
-        firstLine = false;
 
         std::stringstream ss(line);
         float time;
@@ -86,7 +74,7 @@ void NoteManager::loadSong(const std::string& filename) {
             }
         }
     }
-    std::cout << "Musica carregada com " << notes.size() << " notas. Start time: " << startTime << "s." << std::endl;
+    std::cout << "Musica carregada com " << notes.size() << " notas." << std::endl;
 }
 
 float NoteManager::getStartTime() const {
@@ -118,10 +106,9 @@ void NoteManager::update(float song_position, float delta_time) {
     }
 }
 
-// --- Função de Checagem de Acerto
 int NoteManager::checkHit(int key_code) {
     int track = map_key_to_track(key_code);
-    if (track == -1) return 0;
+    if (track == -1) return -1; 
 
     const float HIT_ZONE_Y_START = 480.0f;
     const float HIT_ZONE_Y_END = 550.0f;
@@ -131,14 +118,13 @@ int NoteManager::checkHit(int key_code) {
             if (note.y_position >= HIT_ZONE_Y_START && note.y_position <= HIT_ZONE_Y_END) {
                 note.hit = true;
                 note.active = false;
-                return 10;
+                return track;
             }
         }
     }
-    return 0;
+    return -1;
 }
 
-// --- Função de Cor da Nota 
 ALLEGRO_COLOR NoteManager::keyToColor(int track) {
     switch (track) {
         case 0: return al_map_rgb(0, 255, 0);   // Verde
@@ -150,7 +136,6 @@ ALLEGRO_COLOR NoteManager::keyToColor(int track) {
     }
 }
 
-// --- Função de Renderização
 void NoteManager::render() {
     const float TRACK_START_X = 200.0f;
     const float TRACK_WIDTH = 80.0f;
@@ -160,9 +145,7 @@ void NoteManager::render() {
             float center_x = TRACK_START_X + (note.track * TRACK_WIDTH) + (TRACK_WIDTH / 2);
             float center_y = note.y_position;
             
-            // Efeito "3D": desenha uma "base" escura e deslocada
             al_draw_filled_ellipse(center_x, center_y + 5, 35, 15, al_map_rgb(120, 0, 0));
-            // Desenha o "topo" do disco em vermelho vivo
             al_draw_filled_ellipse(center_x, center_y, 35, 15, keyToColor(note.track));
         }
     }

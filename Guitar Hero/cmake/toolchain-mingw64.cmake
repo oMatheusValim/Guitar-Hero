@@ -1,4 +1,4 @@
-# Define que estamos compilando para Windows
+# Define que esta compilando para Windows
 set(CMAKE_SYSTEM_NAME Windows)
 set(CMAKE_SYSTEM_PROCESSOR x86_64)
 

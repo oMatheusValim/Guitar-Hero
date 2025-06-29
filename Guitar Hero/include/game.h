@@ -47,6 +47,8 @@ private:
     int menu_option;
     int score_screen_option;
 
+    std::vector<float> target_hit_timers; 
+
     void processEvent(const ALLEGRO_EVENT& event);
     void update(float delta_time);
     void render();

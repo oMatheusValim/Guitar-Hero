@@ -3,7 +3,6 @@ project(GuitarHero)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Arquivos fonte e headers
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 
@@ -11,24 +10,18 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(GuitarHero ${SOURCES} ${HEADERS})
 
-# Detecta o sistema operacional
 if (WIN32)
     message(STATUS "Compilando para Windows (Cross-compilation)")
 
-    # Aponta para a pasta 'allegro' do seu projeto
     set(ALLEGRO_WIN_DIR ${CMAKE_SOURCE_DIR}/allegro)
 
-    # Adiciona o diretório 'include' para o compilador
     target_include_directories(GuitarHero PRIVATE ${ALLEGRO_WIN_DIR}/include)
 
-    # Linka diretamente com a biblioteca de importação "monolith"
     target_link_libraries(GuitarHero PRIVATE
         "${ALLEGRO_WIN_DIR}/lib/liballegro_monolith.dll.a"
     )
 
     # --- Copia as DLLs necessárias para a pasta final ---
-
-    # CORREÇÃO AQUI: Usa add_custom_command para garantir que a DLL do Allegro seja copiada
     add_custom_command(TARGET GuitarHero POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
         "${ALLEGRO_WIN_DIR}/bin/allegro_monolith-5.2.dll"
@@ -36,7 +29,7 @@ if (WIN32)
         COMMENT "Copiando a DLL principal do Allegro"
     )
 
-    # Copia as DLLs de runtime do MinGW (esta parte já estava correta)
+    # Copia as DLLs de runtime do MinGW 
     file(GLOB MINGW_DLLS "${CMAKE_SOURCE_DIR}/runtime-dlls/*.dll")
     foreach(DLL_FILE ${MINGW_DLLS})
         add_custom_command(TARGET GuitarHero POST_BUILD
@@ -66,7 +59,6 @@ else()
     target_link_libraries(GuitarHero ${ALLEGRO_LIBRARIES})
     endif()
 
-# Copia a pasta assets
 add_custom_command(TARGET GuitarHero POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:GuitarHero>/assets
