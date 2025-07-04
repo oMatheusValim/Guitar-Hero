@@ -25,7 +25,7 @@ Este projeto foi desenvolvido como um protótipo do famoso jogo Guitar Hero para
 O intuito foi aplicar os conhecimentos adquiridos ao longo da matéria, como funções, vetores, ponteiros, structs, manipulação de arquivos e alocação dinâmica de memória, para criar um jogo funcional na linguagem C++. O projeto foi realizado em parceria pelos alunos Matheus Valim Nogueira e Arthur Silva de Albuquerque.
 
 ## Video ilustrativo
-<video src="https://user-images.githubusercontent.com/oMatheusValim/Guitar_Hero/assets/img/video_ilustrativo.mp4" controls></video>
+![Demonstração do Jogo](https://user-images.githubusercontent.com/oMatheusValim/Guitar_Hero/assets/img/video_ilustrativo.mp4)
 
 ## Recursos do Jogo
 * **Menu Principal:** Navegue entre as opções de "Jogar" e "Sair".
