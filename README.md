@@ -10,6 +10,7 @@ Um protótipo do clássico jogo de ritmo Guitar Hero, desenvolvido em C++ com a 
 
 ### Tabela de Conteúdos
 1.  [Descrição do Projeto](#descrição-do-projeto)
+2.  [Video ilustrativo](#video-ilustrativo)
 2.  [Recursos do Jogo](#recursos-do-jogo)
 3.  [Tecnologias Utilizadas](#tecnologias-utilizadas)
 4.  [Como Jogar (Para Usuários)](#como-jogar-para-usuários)
@@ -22,6 +23,9 @@ Um protótipo do clássico jogo de ritmo Guitar Hero, desenvolvido em C++ com a 
 Este projeto foi desenvolvido como um protótipo do famoso jogo Guitar Hero para a disciplina SSC0601 - Introdução à Ciência da Computação I, na Universidade de São Paulo (USP), campus São Carlos.
 
 O intuito foi aplicar os conhecimentos adquiridos ao longo da matéria, como funções, vetores, ponteiros, structs, manipulação de arquivos e alocação dinâmica de memória, para criar um jogo funcional na linguagem C++. O projeto foi realizado em parceria pelos alunos Matheus Valim Nogueira e Arthur Silva de Albuquerque.
+
+## Video ilustrativo
+<video src="https://user-images.githubusercontent.com/oMatheusValim/Guitar_Hero/assets/img/video_ilustrativo.mp4" controls></video>
 
 ## Recursos do Jogo
 * **Menu Principal:** Navegue entre as opções de "Jogar" e "Sair".
